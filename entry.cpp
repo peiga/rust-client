@@ -29,11 +29,11 @@ int core()
 {
 	bool integrity_status = true;
 
-	if constexpr (!settings::values::using_auth)
+	/*if constexpr (!settings::values::using_auth)
 		integrity_status = integrity::check();
 
 	if (integrity_status)
-	{
+	{*/
 		while (!FindWindowA(xs("UnityWndClass"), xs("Rust")))
 			std::this_thread::sleep_for(std::chrono::seconds(15));
 
@@ -52,11 +52,11 @@ int core()
 		std::thread{ modules::fire_projectile_modules }.detach();
 
 		renderer::start(xs("UnityWndClass"));
-	}
+	/*}
 	else
 	{
 		_Exit(0);
-	}
+	}*/
 
 	return 0;
 }
